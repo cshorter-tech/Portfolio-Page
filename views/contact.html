@@ -7,5 +7,37 @@
   </head>
   <body>
     <h1>Contact Page</h1>
+    <p>
+      To keep up to date on latest developments please subscribe to my
+      newsletter!
+    </p>
+    <form action="" method="get" autocomplete="on">
+      <label for="GET-firstName">First Name: </label>
+      <input
+        id="GET-firstName"
+        name="firstName"
+        type="text"
+        autofocus
+        required
+        minlength="1"
+        maxlength="20"
+      />
+      <label for="GET-lastName">Last Name: </label>
+      <input
+        id="GET-lastName"
+        name="lastName"
+        type="text"
+        required
+        minlength="1"
+        maxlength="20"
+      />
+      <label for="GET-email">Email: </label>
+      <input type="email" name="email" id="GET-email" required />
+      <label for="GET-country">Country: </label>
+      <input type="text" name="country" id="GET-email" required />
+      <input type="checkbox" name="terms" id="GET-terms" required />
+      <label for="GET-terms">Terms & Conditions</label>
+      <input type="submit" value="Sign Up!" />
+    </form>
   </body>
 </html>

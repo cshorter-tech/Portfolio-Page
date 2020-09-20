@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/portfolio', function (req, res) {
-    res.sendFile('./views/projects.html', { root: __dirname, index: false, extensions: ['html'] })
+    res.sendFile('./views/portfolio.html', { root: __dirname, index: false, extensions: ['html'] })
 });
 
 app.get('/blog', function (req, res) {
