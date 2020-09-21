@@ -1,144 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Charles' Homesite</title>
-</head>
-<body>
-    <table cellspacing="20">
-        <tr>
-            <td>    
-                <img 
-                    height="35%"
-                    src="../images/profile_pic.jpg"
-                    alt="Charles in Spain Shopping Model"
-                 />
-            </td>
-            <td>  
-                <h1>Charles Shorter</h1>
-                <p>
-                  <em>
-                    Founder and Entrepreneur: CTO at
-                    <strong>
-                      <a href="">First Digital</a>
-                    </strong>
-                  </em>
-                </p>
-                <p>
-                  Former Wall Street banker and Big-4 Management Consultant with over 10 years of experience in
-                  product development and data analytics across the financial services, healthcare and
-                  insurance industries.</td>
-        </tr>
-    </table>
-
-
-  
-    </p>
+  </head>
+  <header>
+    <!-- <h3>
+        <a href="blog">BIO</a>
+      </h3> -->
+    <h3>
+      <a href="portfolio">PORTFOLIO</a>
+    </h3>
+    <h3>
+      <a href="experience">EXPERIENCE</a>
+    </h3>
+    <h3>
+      <a href="contact">CONTACT</a>
+    </h3>
+  </header>
+  <body>
     <hr />
-    <h3>Education</h3>
+
+    <!-- Rotating Introductions -->
     <p>
-      University of Maryland - Smith School of Business <br />
-      M.S. Business Administration - MBA
+      Hi, I’m Charles! I am a world traveler. Ballroom dancer. FinTech expert.
+      Welcome to my site.
     </p>
+
+    <hr />
+
+    <p>TechStack - I like to code with.. MongoDB, ExpressJS, VueJS, NodeJS</p>
+    <hr />
+    <button><a href="portfolio">VIEW PORTFOLIO</a></button>
+    <button><a href="experience">VIEW RESUME</a></button>
+    <hr />
+
     <p>
-      University of Maryland - Clack School of Engineering <br />
-      B.S. Mechanical Engineering
+      Keep up to date on latest developments:
     </p>
-    <hr>
-    <h3>Work Experience</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Dates</th>
-                <th>Role</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>2019</td>
-                <td>FinTech Product Manager</td>    
-            </tr>
-            <tr>
-                <td>2018-2019</td>
-                <td>Product Development Lead</td>
-            </tr>
-            <tr>
-                <td>2016-2018</td>
-                <td>Data Engineering Lead*</td>
-            </tr>
-            <tr>
-                <td>2015-2016</td>
-                <td>Senior Data Analyst*</td>
-            </tr>
-            <tr>
-                <td>2014-2015</td>
-                <td>Business Data Analyst*</td>
-            </tr>
-                  <tr>
-                <td>2011-2013</td>
-                <td>Systems Engineering Program Manager</td>
-            </tr>
-        </tbody>  
-    </table>
-
-
-      
-    <p>*Contract Role</p>
-    <hr>
-
-    <h3>Skills</h3>
-    <table>
-        <tr>
-            <td> 
-                <table>
-                    <tr>
-                        <td>Product Management</td>
-                        <td>⭐️⭐️⭐️⭐️⭐</td>
-                        <td>Data Analytics</td>
-                        <td>⭐️⭐️⭐️⭐️</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <table>
-                    <tr>
-                        <td>Software Development</td>
-                        <td>⭐️⭐️⭐️⭐️</td>
-                        <td>Data Engineering</td>
-                        <td>⭐️⭐️⭐️</td>
-                    </tr>
-            
-                </table>
-            </td>
-        </tr>
-    </table>
-  
-<hr>
-    <h3>Tech Stack</h3>
-    <ul>
-        <li>JavaScript</li>
-        <li>NodeJS</li>
-        <li>Vue</li>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>Git</li>
-        <li>SQL</li>
-        <li>Rails</li>
-        <li>Ruby</li>
-    </ul>
-
-
-    <h3>
-      <a href="portfolio">Portfolio</a>
-    </h3>
-    <h3>
-      <a href="blog">Blog</a>
-    </h3>
-    <h3>
-      <a href="contact"> Get In Touch!!</a>
-    </h3>
-</body>
+    <form action="" method="post" autocomplete="on">
+      <label for="POST-firstName">First Name: </label>
+      <input
+        id="POST-firstName"
+        name="firstName"
+        type="text"
+        autofocus
+        required
+        minlength="1"
+        maxlength="20"
+      /><br />
+      <label for="POST-lastName">Last Name: </label>
+      <input
+        id="POST-lastName"
+        name="lastName"
+        type="text"
+        required
+        minlength="1"
+        maxlength="20"
+      /><br />
+      <label for="POST-email">Email: </label>
+      <input type="email" name="email" id="POST-email" required /><br />
+      <label for="POST-country">Country: </label>
+      <input type="text" name="country" id="POST-email" required /><br />
+      <input type="submit" value="SUBSCRIBE" />
+    </form>
+  </body>
 </html>

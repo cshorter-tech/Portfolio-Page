@@ -3,41 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Charles' Contact</title>
+    <title>Connect</title>
   </head>
   <body>
-    <h1>Contact Page</h1>
-    <p>
-      To keep up to date on latest developments please subscribe to my
-      newsletter!
-    </p>
-    <form action="" method="get" autocomplete="on">
-      <label for="GET-firstName">First Name: </label>
-      <input
-        id="GET-firstName"
-        name="firstName"
-        type="text"
-        autofocus
+    <h1>Share your feedback and connect!</h1>
+
+    <p>Submit your feedback</p>
+
+    <form
+      autocomplete="on"
+      action="mailto:cshorter.tech@gmail.com"
+      method="post"
+      enctype="text/plain"
+    >
+      <label>First Name: </label>
+      <input type="text" name="firstName" required autofocus /><br />
+      <label>Last Name: </label>
+      <input type="text" name="lastName" required /><br />
+      <label>E-mail: </label>
+      <input type="email" name="email" required /><br />
+      <label for="selection">Reason:</label>
+
+      <select name="contact-reason" id="contact-reason" required>
+        <option value="">--Select--</option>
+        <option value="contactReason">General</option>
+        <option value="contactReason">Networking</option>
+        <option value="contactReason">Opportunity</option>
+        <option value="contactReason">Feedback</option>
+        <option value="contactReason">Collaboration</option> </select
+      ><br />
+      <label>Comment: </label><br />
+      <textarea
+        name="messageContent"
+        id=""
+        cols="30"
+        rows="10"
         required
-        minlength="1"
-        maxlength="20"
-      />
-      <label for="GET-lastName">Last Name: </label>
-      <input
-        id="GET-lastName"
-        name="lastName"
-        type="text"
-        required
-        minlength="1"
-        maxlength="20"
-      />
-      <label for="GET-email">Email: </label>
-      <input type="email" name="email" id="GET-email" required />
-      <label for="GET-country">Country: </label>
-      <input type="text" name="country" id="GET-email" required />
-      <input type="checkbox" name="terms" id="GET-terms" required />
-      <label for="GET-terms">Terms & Conditions</label>
-      <input type="submit" value="Sign Up!" />
+      ></textarea>
+      <input type="submit" />
     </form>
   </body>
+  <footer>
+    <ul>
+      <li class="contact-Twitter">
+        <a href="http://">LinkedIn</a>
+      </li>
+      <li class="contact-LinkedIn">
+        <a href="http://">Instagram</a>
+      </li>
+      <li class="contact-GitHub">
+        <a href="http://">GitHub</a>
+      </li>
+    </ul>
+  </footer>
 </html>
