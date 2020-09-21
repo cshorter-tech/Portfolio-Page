@@ -10,46 +10,50 @@
 
     <p>Submit your feedback</p>
 
-    <form
-      autocomplete="on"
-      action="mailto:cshorter.tech@gmail.com"
-      method="post"
-      enctype="text/plain"
-    >
-      <label>First Name: </label>
-      <input type="text" name="firstName" required autofocus /><br />
-      <label>Last Name: </label>
-      <input type="text" name="lastName" required /><br />
-      <label>E-mail: </label>
-      <input type="email" name="email" required /><br />
-      <label for="selection">Reason:</label>
+    <form autocomplete="on" action="/contact/sendFeedback" method="post">
+      <label for="firstName">First Name: </label>
+      <input
+        type="text"
+        name="firstName"
+        id="firstName"
+        required
+        autofocus
+      /><br />
+      <label for="lastName">Last Name: </label>
+      <input type="text" name="lastName" id="lastName" required /><br />
+      <label for="email">E-mail: </label>
+      <input type="email" name="email" id="email" required /><br />
+      <label for="reason">Reason:</label>
 
-      <select name="contact-reason" id="contact-reason" required>
+      <select name="selection" id="reason" required>
         <option value="">--Select--</option>
-        <option value="contactReason">General</option>
-        <option value="contactReason">Networking</option>
-        <option value="contactReason">Opportunity</option>
-        <option value="contactReason">Feedback</option>
-        <option value="contactReason">Collaboration</option> </select
+        <option value="general">General</option>
+        <option value="networking">Networking</option>
+        <option value="opportunity">Opportunity</option>
+        <option value="feedback">Feedback</option>
+        <option value="collaboration">Collaboration</option> </select
       ><br />
-      <label>Comment: </label><br />
+      <label for="message">Comment: </label><br />
       <textarea
         name="messageContent"
-        id=""
+        id="message"
         cols="30"
         rows="10"
         required
-      ></textarea>
-      <input type="submit" />
+      ></textarea
+      ><br />
+      <input type="submit" /><br />
+      <input type="checkbox" name="subscription" id="subscription" />
+      <label for="subscription">Subscribe to newsletter?</label>
     </form>
   </body>
   <footer>
     <ul>
-      <li class="contact-Twitter">
+      <li class="contact-LinkedIn">
         <a href="http://">LinkedIn</a>
       </li>
-      <li class="contact-LinkedIn">
-        <a href="http://">Instagram</a>
+      <li class="contact-Twitter">
+        <a href="http://">Twitter</a>
       </li>
       <li class="contact-GitHub">
         <a href="http://">GitHub</a>
