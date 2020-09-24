@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+// import { getTabularContent } from './views/partials/portfolioTabs'
 
 var app = express();
 
@@ -56,9 +57,6 @@ app.post('/addUser', function (req, res) {
 })
 
 app.get('/portfolio', function (req, res) {
-    // if (!req.path === "")
-    //     res.sendFile('./views/partials/portfolioTabs.js', { root: __dirname, index: false, extensions: ['js'] })
-    // console.log(req.params.id)
     res.sendFile('./views/portfolio.html', { root: __dirname, index: false, extensions: ['html'] })
 });
 
