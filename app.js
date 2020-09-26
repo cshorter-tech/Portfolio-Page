@@ -1,11 +1,24 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+// const updateUsers = require('./controller/updateUser')
+// const { people, ages } = require('./controller/updateUser')
+// const { greetings, readFile } = require('./controller/updateBlogs')
 // import { getTabularContent } from './views/partials/portfolioTabs'
 
 var app = express();
 
+// console.log(updateUsers);
+// console.log(updateUsers.people);
+// console.log(ages)
+// console.log(greetings)
+// console.log(readFile)
+
+
 mongoose.connect('mongodb://localhost:27017/portfolioPage', { useNewUrlParser: true });
+
+app.set('view engine', 'ejs');
+// app.set('views', 'partials')
 
 // app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -40,7 +53,7 @@ const messageSchema = new mongoose.Schema({
 const Message = mongoose.model('Message', messageSchema);
 
 app.get('/', function (req, res) {
-    res.sendFile('./views/index.html', { root: __dirname, index: false, extensions: ['html'] })
+    res.render('index.ejs', { root: __dirname, index: false, extensions: ['ejs'] })
 });
 
 app.post('/addUser', function (req, res) {
@@ -57,19 +70,19 @@ app.post('/addUser', function (req, res) {
 })
 
 app.get('/portfolio', function (req, res) {
-    res.sendFile('./views/portfolio.html', { root: __dirname, index: false, extensions: ['html'] })
+    res.render('portfolio.ejs', { root: __dirname, index: false, extensions: ['ejs'] })
 });
 
 app.get('/experience', function (req, res) {
-    res.sendFile('./views/experience.html', { root: __dirname, index: false, extensions: ['html'] })
+    res.render('experience.ejs', { root: __dirname, index: false, extensions: ['ejs'] })
 });
 
 app.get('/blog', function (req, res) {
-    res.sendFile('./views/blog.html', { root: __dirname, index: false, extensions: ['html'] })
+    res.render('blog.ejs', { root: __dirname, index: false, extensions: ['ejs'] })
 });
 
 app.get('/contact', function (req, res) {
-    res.sendFile('./views/contact.html', { root: __dirname, index: false, extensions: ['html'] })
+    res.render('contact.ejs', { root: __dirname, index: false, extensions: ['ejs'] })
 });
 
 app.post('/contact/sendFeedback', function (req, res) {
