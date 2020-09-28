@@ -17,24 +17,25 @@ const writeFile = fs.writeFile('./public/docs/blog1.txt', "Hello World", (err) =
 })
 
 // Create & Remove directory
-if (fs.existsSync('./controller/dud')) {
-    fs.rmdir('./controller/dud', (err) => {
-        if (err) {
-            console.log(err)
-        }
-        console.log("folder deleted")
-    })
-} else {
-    fs.mkdir('./controller/dud', (err) => {
-        if (err) {
-            console.log(err)
-        }
-        console.log("folder created")
-    })
+const dirToggle = function () {
+    if (fs.existsSync('./controller/dud')) {
+        fs.rmdir('./controller/dud', (err) => {
+            if (err) {
+                console.log(err)
+            }
+            console.log("folder deleted")
+        })
+    } else {
+        fs.mkdir('./controller/dud', (err) => {
+            if (err) {
+                console.log(err)
+            }
+            console.log("folder created")
+        })
+    }
 }
 
 module.exports = {
     greetings,
-    readFile,
-    writeFile
+    dirToggle
 };

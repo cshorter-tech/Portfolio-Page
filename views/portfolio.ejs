@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Charles' Portfolio</title>
-  </head>
+  <%- include('./partials/head.ejs') %>
   <body>
-    <a href="/"><< return</a>
+    <%- include('./partials/nav.ejs') %>
+    <hr />
     <div class="tabs">
       <ul>
         <button class="software-tab">Software</button>
@@ -15,7 +12,14 @@
       </ul>
     </div>
     <div class="content">
-      <p class="tab-content">Software projects here..</p>
+      <% if(portfolioEntries.length>0) { %> <% portfolioEntries.forEach(item =>
+      { %>
+      <h3 class="title"><%= item.title %></h3>
+      <p class="description"><%= item.description %></p>
+      <% }) %> <% } else { %>
+      <p>There are no items to display..</p>
+      <% } %>
     </div>
   </body>
+  <%- include('./partials/footer.ejs')%>
 </html>

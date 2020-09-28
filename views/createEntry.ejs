@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <header>
+      <a href="/"><< return</a>
+    </header>
+    <hr />
+    <h1>Create Entry</h1>
+    <form action="addEntry" method="post">
+      <label for="POST-name">Title:</label>
+      <input type="text" id="POST-name" name="title" autofocus required /><br />
+      <label for="POST-type">Type</label>
+      <input type="text" id="POST-type" name="type" /><br />
+      <label for="POST-description">Description:</label>
+      <textarea type="text" id="POST-Description" name="description"></textarea
+      ><br />
+      <label for="POST-link">URL:</label>
+      <input type="url" id="POST-link" name="url" /><br />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

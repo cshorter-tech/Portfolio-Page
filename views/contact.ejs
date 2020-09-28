@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Connect</title>
-  </head>
+  <%- include('./partials/head.ejs') %>
   <body>
-    <a href="/"><< return</a>
+    <%- include('./partials/nav.ejs') %>
+    <hr />
     <h1>Share your feedback and connect!</h1>
 
     <p>Submit your feedback</p>
@@ -48,17 +45,5 @@
       <label for="subscription">Subscribe to newsletter?</label>
     </form>
   </body>
-  <footer>
-    <ul>
-      <li class="contact-LinkedIn">
-        <a href="http://">LinkedIn</a>
-      </li>
-      <li class="contact-Twitter">
-        <a href="http://">Twitter</a>
-      </li>
-      <li class="contact-GitHub">
-        <a href="http://">GitHub</a>
-      </li>
-    </ul>
-  </footer>
+  <%- include('./partials/footer.ejs')%>
 </html>

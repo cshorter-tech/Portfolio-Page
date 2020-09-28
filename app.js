@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 // const updateUsers = require('./controller/updateUser')
 // const { people, ages } = require('./controller/updateUser')
-// const { greetings, readFile } = require('./controller/updateBlogs')
+const { greetings, dirToggle } = require('./controller/updateBlogs')
 // import { getTabularContent } from './views/partials/portfolioTabs'
 
 var app = express();
@@ -11,6 +11,7 @@ var app = express();
 // console.log(updateUsers);
 // console.log(updateUsers.people);
 // console.log(ages)
+dirToggle();
 // console.log(greetings)
 // console.log(readFile)
 
@@ -53,7 +54,7 @@ const messageSchema = new mongoose.Schema({
 const Message = mongoose.model('Message', messageSchema);
 
 app.get('/', function (req, res) {
-    res.render('index.ejs', { root: __dirname, index: false, extensions: ['ejs'] })
+    res.render('index.ejs', { root: __dirname, index: false, extensions: ['ejs'], title: 'Home' })
 });
 
 app.post('/addUser', function (req, res) {
@@ -70,19 +71,25 @@ app.post('/addUser', function (req, res) {
 })
 
 app.get('/portfolio', function (req, res) {
-    res.render('portfolio.ejs', { root: __dirname, index: false, extensions: ['ejs'] })
+    const portfolioEntries = [
+        { title: 'Blog 1', type: 'Software', description: 'all the web apps', url: 'www.google.com' },
+        { title: 'Blog 2', type: 'Analytics', description: 'all the data', url: 'www.google.com' },
+        { title: 'Blog 3', type: 'Publications', description: 'all the publications', url: 'www.google.com' }
+    ]
+
+    res.render('portfolio.ejs', { root: __dirname, index: false, extensions: ['ejs'], title: 'Portfolio', portfolioEntries })
+});
+
+app.get('/portfolio/create', function (req, res) {
+    res.render('createEntry.ejs', { root: __dirname, index: false, extensions: ['ejs'] })
 });
 
 app.get('/experience', function (req, res) {
-    res.render('experience.ejs', { root: __dirname, index: false, extensions: ['ejs'] })
-});
-
-app.get('/blog', function (req, res) {
-    res.render('blog.ejs', { root: __dirname, index: false, extensions: ['ejs'] })
+    res.render('experience.ejs', { root: __dirname, index: false, extensions: ['ejs'], title: 'Resume' })
 });
 
 app.get('/contact', function (req, res) {
-    res.render('contact.ejs', { root: __dirname, index: false, extensions: ['ejs'] })
+    res.render('contact.ejs', { root: __dirname, index: false, extensions: ['ejs'], title: 'Contact' })
 });
 
 app.post('/contact/sendFeedback', function (req, res) {
