@@ -4,7 +4,12 @@ const bodyParser = require('body-parser');
 // const updateUsers = require('./controller/updateUser')
 // const { people, ages } = require('./controller/updateUser')
 const { greetings, dirToggle } = require('./controller/updateBlogs')
+const User = require('./models/user')
+const Message = require('./models/message')
+const PortfolioItem = require('./models/portfolioItem')
+
 // import { getTabularContent } from './views/partials/portfolioTabs'
+const portfolioRoutes = require('./routes/portfolioRoutes')
 
 var app = express();
 
@@ -34,25 +39,6 @@ db.once('open', function () {
     console.log("MongoDB server started on port 27017..")
 });
 
-const userSchema = new mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    email: String,
-    country: String,
-    subscription: { type: String, default: 'on' }
-});
-const User = mongoose.model('User', userSchema);
-
-const messageSchema = new mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    email: String,
-    contactReason: String,
-    messageContent: String,
-    subscription: String
-});
-const Message = mongoose.model('Message', messageSchema);
-
 app.get('/', function (req, res) {
     res.render('index.ejs', { root: __dirname, index: false, extensions: ['ejs'], title: 'Home' })
 });
@@ -70,19 +56,7 @@ app.post('/addUser', function (req, res) {
     res.redirect("/");
 })
 
-app.get('/portfolio', function (req, res) {
-    const portfolioEntries = [
-        { title: 'Blog 1', type: 'Software', description: 'all the web apps', url: 'www.google.com' },
-        { title: 'Blog 2', type: 'Analytics', description: 'all the data', url: 'www.google.com' },
-        { title: 'Blog 3', type: 'Publications', description: 'all the publications', url: 'www.google.com' }
-    ]
-
-    res.render('portfolio.ejs', { root: __dirname, index: false, extensions: ['ejs'], title: 'Portfolio', portfolioEntries })
-});
-
-app.get('/portfolio/create', function (req, res) {
-    res.render('createEntry.ejs', { root: __dirname, index: false, extensions: ['ejs'] })
-});
+app.use(portfolioRoutes);
 
 app.get('/experience', function (req, res) {
     res.render('experience.ejs', { root: __dirname, index: false, extensions: ['ejs'], title: 'Resume' })
@@ -104,6 +78,7 @@ app.post('/contact/sendFeedback', function (req, res) {
         });
     res.redirect("/contact");
 })
+
 
 app.listen(3000, () => {
     console.log('Local server started on port 3000.')
