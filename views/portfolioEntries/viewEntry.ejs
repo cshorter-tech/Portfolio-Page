@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <header>
+      <a href="/"><< return</a>
+    </header>
+    <hr />
+    <h1>View Entry</h1>
+    <div class="content">
+      <h3 class="title"><%= item.title %></h3>
+      <p class="description"><%= item.description %></p>
+      <p class="type"><%= item.type %></p>
+      <p class="URL"><%= item.URL %></p>
+    </div>
+  </body>
+</html>

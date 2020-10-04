@@ -1,25 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-// const updateUsers = require('./controller/updateUser')
-// const { people, ages } = require('./controller/updateUser')
-const { greetings, dirToggle } = require('./controller/updateBlogs')
 const User = require('./models/user')
 const Message = require('./models/message')
-const PortfolioItem = require('./models/portfolioItem')
-
-// import { getTabularContent } from './views/partials/portfolioTabs'
 const portfolioRoutes = require('./routes/portfolioRoutes')
 
 var app = express();
-
-// console.log(updateUsers);
-// console.log(updateUsers.people);
-// console.log(ages)
-dirToggle();
-// console.log(greetings)
-// console.log(readFile)
-
 
 mongoose.connect('mongodb://localhost:27017/portfolioPage', { useNewUrlParser: true });
 
@@ -56,7 +42,7 @@ app.post('/addUser', function (req, res) {
     res.redirect("/");
 })
 
-app.use(portfolioRoutes);
+app.use('/portfolio', portfolioRoutes);
 
 app.get('/experience', function (req, res) {
     res.render('experience.ejs', { root: __dirname, index: false, extensions: ['ejs'], title: 'Resume' })

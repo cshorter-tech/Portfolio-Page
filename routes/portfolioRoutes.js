@@ -1,38 +1,17 @@
 const express = require('express');
-const PortfolioItem = require('../models/portfolioItem')
-
+const portfolioController = require('../controller/portfolioController');
 const router = express.Router()
 
-router.get('/portfolio', function (req, res) {
-    PortfolioItem.find()
-        .then((result) => {
-            var portfolioEntries = []
-            result.forEach(element => {
-                portfolioEntries.push({ title: element.title, type: element.type, description: element.description, url: element.url })
-            });
-            // console.log(portfolioEntries)
-            res.render('portfolio.ejs', { root: __dirname, index: false, extensions: ['ejs'], title: 'Portfolio', portfolioEntries })
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-});
+// Need links and controllers for put/update and delete 
 
-router.get('/portfolio/create', function (req, res) {
-    res.render('createEntry.ejs', { root: __dirname, index: false, extensions: ['ejs'], title: "Create Portfolio" })
-});
-
-router.post('/portfolio/addEntry', function (req, res) {
-    var newPortfolioItem = new PortfolioItem(req.body)
-    newPortfolioItem.save()
-        .then(item => {
-            console.log("newPortfolioItem added to database");
-        })
-        .catch(err => {
-            res.status(400).send("unable to save to database");
-        });
-    res.redirect('/portfolio/create')
-})
-
+router.get('/', portfolioController.portfolio_index);
+router.get('/analytics', portfolioController.portfolio_analytics);
+router.get('/software', portfolioController.portfolio_software);
+router.get('/publications', portfolioController.portfolio_publications);
+router.get('/create', portfolioController.portfolio_dataEntry);
+router.post('/create', portfolioController.portfolioItem_create);
+router.get('/:id', portfolioController.portfolioItem_view);
+router.put('/:id/update', portfolioController.portfolioItem_update);
+router.delete('/:id/delete', portfolioController.portfolioItem_delete);
 
 module.exports = router;
