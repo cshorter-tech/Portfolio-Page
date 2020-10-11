@@ -10,8 +10,9 @@ router.get('/software', portfolioController.portfolio_software);
 router.get('/publications', portfolioController.portfolio_publications);
 router.get('/create', portfolioController.portfolio_dataEntry);
 router.post('/create', portfolioController.portfolioItem_create);
-router.get('/:id', portfolioController.portfolioItem_view);
-router.put('/:id/update', portfolioController.portfolioItem_update);
-router.delete('/:id/delete', portfolioController.portfolioItem_delete);
+router.get('/view/:id', portfolioController.portfolioItem_view);
+router.get('/edit/:id', portfolioController.portfolioItem_edit);
+router.post('/edit/:id', portfolioController.portfolioItem_update);
+router.get('/delete/:id', portfolioController.portfolioItem_delete);
 
 module.exports = router;

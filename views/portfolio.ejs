@@ -21,12 +21,19 @@
       <% if(portfolioEntries.length>0) { %> <% portfolioEntries.forEach(item =>
       { %>
       <h3 class="title"><%= item.title %></h3>
+      <!-- <p class="id"><%= item.id %></p> -->
       <p class="description"><%= item.description %></p>
       <p class="type"><%= item.type %></p>
       <p class="URL"><%= item.URL %></p>
+      <p>
+        <a href="/portfolio/view/<%= item.id %>">View</a>
+        <a href="/portfolio/edit/<%= item.id %>">Update</a>
+        <a href="/portfolio/delete/<%= item.id %>">Delete</a>
+      </p>
       <% }) %> <% } else { %>
       <p>There are no items to display..</p>
       <% } %>
+      <button><a href="/portfolio/create">Add to Portfolio</a></button>
     </div>
   </body>
   <%- include('./partials/footer.ejs')%>

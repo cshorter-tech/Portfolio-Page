@@ -7,7 +7,7 @@ const portfolio_index = (req, res) => {
         .then((result) => {
             var portfolioEntries = []
             result.forEach(element => {
-                portfolioEntries.push({ title: element.title, type: element.type, description: element.description, url: element.url })
+                portfolioEntries.push({ id: element.id, title: element.title, type: element.type, description: element.description, url: element.url })
             });
             // console.log(portfolioEntries)
             res.render('portfolio.ejs', { root: __dirname, index: false, extensions: ['ejs'], title: 'Portfolio', portfolioEntries })
@@ -28,7 +28,7 @@ const portfolio_analytics = (req, res) => {
         .then((result) => {
             var portfolioEntries = []
             result.forEach(element => {
-                portfolioEntries.push({ title: element.title, type: element.type, description: element.description, url: element.url })
+                portfolioEntries.push({ id: element.id, title: element.title, type: element.type, description: element.description, url: element.url })
             });
             // console.log(portfolioEntries)
             res.render('portfolio.ejs', { root: __dirname, index: false, extensions: ['ejs'], title: 'Portfolio', portfolioEntries })
@@ -43,7 +43,7 @@ const portfolio_software = (req, res) => {
         .then((result) => {
             var portfolioEntries = []
             result.forEach(element => {
-                portfolioEntries.push({ title: element.title, type: element.type, description: element.description, url: element.url })
+                portfolioEntries.push({ id: element.id, title: element.title, type: element.type, description: element.description, url: element.url })
             });
             // console.log(portfolioEntries)
             res.render('portfolio.ejs', { root: __dirname, index: false, extensions: ['ejs'], title: 'Portfolio', portfolioEntries })
@@ -58,9 +58,9 @@ const portfolio_publications = (req, res) => {
         .then((result) => {
             var portfolioEntries = []
             result.forEach(element => {
-                portfolioEntries.push({ title: element.title, type: element.type, description: element.description, url: element.url })
+                portfolioEntries.push({ id: element.id, title: element.title, type: element.type, description: element.description, url: element.url })
             });
-            // console.log(portfolioEntries)
+            console.log(portfolioEntries)
             res.render('portfolio.ejs', { root: __dirname, index: false, extensions: ['ejs'], title: 'Portfolio', portfolioEntries })
         })
         .catch((err) => {
@@ -96,7 +96,7 @@ const portfolioItem_view = (req, res) => {
         })
 }
 
-const portfolioItem_update = (req, res) => {
+const portfolioItem_edit = (req, res) => {
     const id = req.params.id
     console.log(id)
     PortfolioItem.findById(id)
@@ -108,8 +108,26 @@ const portfolioItem_update = (req, res) => {
         })
 }
 
-const portfolioItem_delete = (req, res) => {
+const portfolioItem_update = (req, res) => {
+    const updates = req.body
+    const id = req.params.id
+    PortfolioItem.replaceOne({ _id: id }, { title: updates.title, type: updates.type, description: updates.description, url: updates.url })
+        .then(() => {
+            res.redirect('/portfolio')
+        })
+        .catch((err) => {
+            console.log(err)
+        });
+}
 
+const portfolioItem_delete = (req, res) => {
+    PortfolioItem.deleteOne({ id: req.id })
+        .then(() => {
+            res.redirect('/portfolio')
+        })
+        .catch((err) => {
+            console.log(err)
+        });
 }
 
 module.exports = {
@@ -120,50 +138,7 @@ module.exports = {
     portfolio_dataEntry,
     portfolioItem_create,
     portfolioItem_view,
+    portfolioItem_edit,
     portfolioItem_update,
     portfolioItem_delete
-}
-
-
-
-// const fs = require('fs');
-
-// // Reading files
-// const greetings = "hello"
-// const readFile = fs.readFile('./public/docs/blog.txt', (err, data) => {
-//     if (err) {
-//         console.log(err)
-//     }
-//     console.log(data.toString())
-// })
-
-// // Creating files
-// const writeFile = fs.writeFile('./public/docs/blog1.txt', "Hello World", (err) => {
-//     if (err) {
-//         console.log(err)
-//     } console.log("File saved")
-// })
-
-// // Create & Remove directory
-// const dirToggle = function () {
-//     if (fs.existsSync('./controller/dud')) {
-//         fs.rmdir('./controller/dud', (err) => {
-//             if (err) {
-//                 console.log(err)
-//             }
-//             console.log("folder deleted")
-//         })
-//     } else {
-//         fs.mkdir('./controller/dud', (err) => {
-//             if (err) {
-//                 console.log(err)
-//             }
-//             console.log("folder created")
-//         })
-//     }
-// }
-
-// module.exports = {
-//     greetings,
-//     dirToggle
-// };
+};

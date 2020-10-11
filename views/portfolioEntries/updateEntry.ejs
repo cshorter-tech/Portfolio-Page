@@ -1,60 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('./partials/head.ejs') %>
+  <%- include('../partials/head.ejs') %>
   <body>
-    <%- include('./partials/nav.ejs') %>
+    <%- include('../partials/nav.ejs') %>
     <hr />
-    <div class="tabs">
-      <ul>
-        <button class="update-icon">
-          <a href="">Edit</a>
-        </button>
-        <button class="delete-icon">
-          <a href="">Delete</a>
-        </button>
-      </ul>
-    </div>
-    <div class="content">
-      <% if(portfolioEntries.length>0) { %> <% portfolioEntries.forEach(item =>
-      { %>
-      <h3 class="title"><%= item.title %></h3>
-      <p class="description"><%= item.description %></p>
-      <p class="type"><%= item.type %></p>
-      <p class="URL"><%= item.URL %></p>
-      <% }) %> <% } else { %>
-      <p>There are no items to display..</p>
-      <% } %>
-    </div>
-
-    <h1>Update Entry</h1>
-    <form action="addEntry" method="post">
-      <label for="POST-name">Title:</label>
+    <h1>Edit Entry</h1>
+    <form
+      action="/portfolio/edit/<%= item.id %>"
+      method="post"
+      autocomplete="off"
+    >
+      <label for="POST-name" value="Title">Title:</label>
       <input
         type="text"
         id="POST-name"
         name="title"
-        value="`<%"
-        ="item.title"
-        %
-      />` autofocus required /><br />
+        value="<%= item.title %>"
+        required
+      /><br />
       <label for="POST-type">Type</label>
-      <input type="text" id="POST-type" name="type" value="<%" ="item.type" % />
+      <input
+        type="text"
+        id="POST-type"
+        name="type"
+        value="<%= item.type %>"
       /><br />
       <label for="POST-description">Description:</label>
-      <textarea
-        type="text"
-        id="POST-Description"
-        name="description"
-        value="<%"
-        ="item.type"
-        %
-      >
- ></textarea
+      <textarea type="text" id="POST-Description" name="description">
+<%= item.description %></textarea
       ><br />
       <label for="POST-link">URL:</label>
-      <input type="text" id="POST-link" name="url" /><br />
-      <button type="submit">Submit</button>
+      <input
+        type="text"
+        id="POST-link"
+        name="url"
+        value="<%= item.url %>"
+      /><br />
+      <button type="submit">Update</button>
+      <button type="submit">Delete</button>
     </form>
   </body>
-  <%- include('./partials/footer.ejs')%>
 </html>
