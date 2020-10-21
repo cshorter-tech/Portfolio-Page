@@ -10,13 +10,10 @@ var app = express();
 mongoose.connect('mongodb://localhost:27017/portfolioPage', { useNewUrlParser: true });
 
 app.set('view engine', 'ejs');
-// app.set('views', 'partials')
 
 // app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use(express.static('public'));
-// app.use('images', express.static(__dirname + 'public/images'));
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
