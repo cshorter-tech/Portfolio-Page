@@ -4,50 +4,25 @@
 
   <body>
     <%- include('./partials/nav.ejs') %>
-    <hr />
+
     <!-- Rotating Introductions -->
-    <p>
-      Hi, I’m Charles! I am a world traveler. Ballroom dancer. FinTech expert.
-      Welcome to my site.
-    </p>
+    <div class="name__container">
+      <div class="name__full" ">
+        <span class="name__first-init">C</span>
+        <span class="name__text">harles </span>
+  
+        <span class="name__first-init">S</span>
+        <span class="name__text">horter</span>
+      </div >
+  
+      <div class="name__spinner">
+        <span></span>
+      </div>
+    </div>
+    
+   
 
-    <hr />
-
-    <p>TechStack - I like to code with.. MongoDB, ExpressJS, VueJS, NodeJS</p>
-    <hr />
-    <button><a href="portfolio">VIEW PORTFOLIO</a></button>
-    <button><a href="experience">VIEW RESUME</a></button>
-    <hr />
-
-    <p>
-      Keep up to date on latest developments:
-    </p>
-    <form action="/addUser" method="post" autocomplete="on">
-      <label for="firstName">First Name: </label>
-      <input
-        id="firstName"
-        name="firstName"
-        type="text"
-        autofocus
-        required
-        minlength="1"
-        maxlength="20"
-      /><br />
-      <label for="lastName">Last Name: </label>
-      <input
-        id="lastName"
-        name="lastName"
-        type="text"
-        required
-        minlength="1"
-        maxlength="20"
-      /><br />
-      <label for="email">Email: </label>
-      <input type="email" name="email" id="email" required /><br />
-      <label for="country">Country: </label>
-      <input type="text" name="country" id="email" required /><br />
-      <input type="submit" value="SUBSCRIBE" />
-    </form>
+    <!-- <p>TechStack - I like to code with.. MongoDB, ExpressJS, VueJS, NodeJS</p> -->
   </body>
   <%- include('./partials/footer.ejs')%>
 </html>

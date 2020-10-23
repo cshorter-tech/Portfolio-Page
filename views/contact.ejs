@@ -3,11 +3,41 @@
   <%- include('./partials/head.ejs') %>
   <body>
     <%- include('./partials/nav.ejs') %>
-    <hr />
-    <h1>Share your feedback and connect!</h1>
 
-    <p>Submit your feedback</p>
+    <!-- <h1>Share your feedback and connect!</h1> -->
 
+    <!-- <p>Submit your feedback</p> -->
+
+    <h1>
+      Keep up to date on latest developments:
+    </h1>
+    <form action="/addUser" method="post" autocomplete="on">
+      <label for="firstName">First Name: </label>
+      <input
+        id="firstName"
+        name="firstName"
+        type="text"
+        autofocus
+        required
+        minlength="1"
+        maxlength="20"
+      /><br />
+      <label for="lastName">Last Name: </label>
+      <input
+        id="lastName"
+        name="lastName"
+        type="text"
+        required
+        minlength="1"
+        maxlength="20"
+      /><br />
+      <label for="email">Email: </label>
+      <input type="email" name="email" id="email" required /><br />
+      <label for="country">Country: </label>
+      <input type="text" name="country" id="email" required /><br />
+      <input type="submit" value="REGISTER" />
+    </form>
+    <!--     
     <form autocomplete="on" action="/contact/sendFeedback" method="post">
       <label for="firstName">First Name: </label>
       <input
@@ -43,7 +73,7 @@
       <input type="submit" /><br />
       <input type="checkbox" name="subscription" id="subscription" />
       <label for="subscription">Subscribe to newsletter?</label>
-    </form>
+    </form> -->
   </body>
   <%- include('./partials/footer.ejs')%>
 </html>

@@ -44,7 +44,7 @@ app.get('/experience', function (req, res) {
     res.render('experience.ejs', { root: __dirname, index: false, extensions: ['ejs'], title: 'Resume' })
 });
 
-app.get('/contact', function (req, res) {
+app.get('/connect', function (req, res) {
     res.render('contact.ejs', { root: __dirname, index: false, extensions: ['ejs'], title: 'Contact' })
 });
 
