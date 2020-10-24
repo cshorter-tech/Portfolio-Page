@@ -138,11 +138,19 @@ footer a:visited {
     content: "";
   }
   8% {
+    opacity: 0.9;
+    content: "PRODUCT DEVELOPER & ENGINEER";
+  }
+  10% {
     opacity: 1;
     content: "PRODUCT DEVELOPER & ENGINEER";
   }
   20% {
     opacity: 1;
+    content: "PRODUCT DEVELOPER & ENGINEER";
+  }
+  22% {
+    opacity: 0.8;
     content: "PRODUCT DEVELOPER & ENGINEER";
   }
   34% {
@@ -152,12 +160,20 @@ footer a:visited {
   35% {
     content: "";
   }
+  41% {
+    opacity: 0.9;
+    content: "FINTECH INDUSTRY EXPERT";
+  }
   43% {
     opacity: 1;
     content: "FINTECH INDUSTRY EXPERT";
   }
   53% {
     opacity: 1;
+    content: "FINTECH INDUSTRY EXPERT";
+  }
+  55% {
+    opacity: 0.8;
     content: "FINTECH INDUSTRY EXPERT";
   }
   67% {
@@ -167,12 +183,20 @@ footer a:visited {
   68% {
     content: "";
   }
+  76% {
+    opacity: 0.9;
+    content: "INTERNATIONAL BALLROOM DANCER";
+  }
   78% {
     opacity: 1;
     content: "INTERNATIONAL BALLROOM DANCER";
   }
   86% {
     opacity: 1;
+    content: "INTERNATIONAL BALLROOM DANCER";
+  }
+  88% {
+    opacity: 0.8;
     content: "INTERNATIONAL BALLROOM DANCER";
   }
   98% {
